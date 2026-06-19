@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="eureka-service" />
+        <module name="config-server" />
+      </profile>
+      <profile name="Annotation profile for ventas-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="menus-service" />
+        <module name="locales-service" />
+        <module name="gerentes-service" />
+        <module name="ventas-service" />
+        <module name="inventarios-service" />
+        <module name="empleados-service" />
+        <module name="proveedores-service" />
+        <module name="equipos-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-server" target="25" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="empleados-service" options="-parameters" />
+      <module name="equipos-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="eureka-service" options="-parameters" />
+      <module name="gerentes-service" options="-parameters" />
+      <module name="inventarios-service" options="-parameters" />
+      <module name="locales-service" options="-parameters" />
+      <module name="menus-service" options="-parameters" />
+      <module name="proveedores-service" options="-parameters" />
+      <module name="ventas-service" options="-parameters" />
+    </option>
+  </component>
+</project>

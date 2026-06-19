@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/api-gateway/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/menus-service/menus-service/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-service/eureka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ventas-service/ventas-service/pom.xml" />
+        <option value="$PROJECT_DIR$/equipos-service/equipos-service/pom.xml" />
+        <option value="$PROJECT_DIR$/locales-service/locales-service/pom.xml" />
+        <option value="$PROJECT_DIR$/gerentes-service/gerentes-service/pom.xml" />
+        <option value="$PROJECT_DIR$/empleados-service/empleados-service/pom.xml" />
+        <option value="$PROJECT_DIR$/inventarios-service/inventarios-service/pom.xml" />
+        <option value="$PROJECT_DIR$/proveedores-service/proveedores-service/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/empleados-service/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-service/pom.xml" />
+        <option value="$PROJECT_DIR$/gerentes-service/pom.xml" />
+        <option value="$PROJECT_DIR$/inventarios-service/pom.xml" />
+        <option value="$PROJECT_DIR$/locales-service/pom.xml" />
+        <option value="$PROJECT_DIR$/menus-service/pom.xml" />
+        <option value="$PROJECT_DIR$/proveedores-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ventas-service/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/equipos-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_25" project-jdk-name="25" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

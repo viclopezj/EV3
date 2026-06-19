@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/api-gateway/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/empleados-service/empleados-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/empleados-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/equipos-service/equipos-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/equipos-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-service/eureka-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/eureka-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gerentes-service/gerentes-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gerentes-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inventarios-service/inventarios-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/inventarios-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/locales-service/locales-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/locales-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/menus-service/menus-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/menus-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/proveedores-service/proveedores-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/proveedores-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ventas-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ventas-service/ventas-service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

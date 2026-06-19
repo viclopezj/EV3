@@ -1,0 +1,83 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: empleados-service
+              uri: lb://empleados-service
+              predicates:
+                - Path=/api/v1/empleados/**
+
+            - id: gerentes-service
+              uri: lb://gerentes-service
+              predicates:
+                - Path=/api/v1/gerentes/**, /v3/api-docs/gerentes
+              filters:
+                - RewritePath=/v3/api-docs/gerentes, /v3/api-docs
+
+            - id: locales-service
+              uri: lb://locales-service
+              predicates:
+                - Path=/api/v1/locales/**, /v3/api-docs/locales
+              filters:
+                - RewritePath=/v3/api-docs/locales, /v3/api-docs
+
+            - id: menus-service
+              uri: lb://menus-service
+              predicates:
+                - Path=/api/v1/menus/**
+
+            - id: ventas-service
+              uri: lb://ventas-service
+              predicates:
+                - Path=/api/v1/ventas/**
+
+            - id: inventarios-service
+              uri: lb://inventarios-service
+              predicates:
+                - Path=/api/v1/inventarios/**
+
+            - id: proveedores-service
+              uri: lb://proveedores-service
+              predicates:
+                - Path=/api/v1/proveedores/**
+
+            - id: equipos-service
+              uri: lb://equipos-service
+              predicates:
+                - Path=/api/v1/equipos/**
+
+            - id: categorias-service
+              uri: lb://menus-service
+              predicates:
+                - Path=/api/v1/categorias/**
+
+            - id: marcas-service
+              uri: lb://equipos-service
+              predicates:
+                - Path=/api/v1/marcas/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: Locales
+        url: /v3/api-docs/locales
+      - name: Gerentes
+        url: /v3/api-docs/gerentes
