@@ -21,7 +21,7 @@ services:
       - "8761:8761"
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
 
   config-server:
     restart: always
@@ -38,9 +38,9 @@ services:
       - ./config-microservicios:/config-microservicios
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
 
   locales-service:
     restart: always
@@ -56,11 +56,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   empleados-service:
     restart: always
@@ -76,11 +76,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   equipos-service:
     restart: always
@@ -96,11 +96,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   gerentes-service:
     restart: always
@@ -116,11 +116,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   inventarios-service:
     restart: always
@@ -136,11 +136,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   menus-service:
     restart: always
@@ -156,11 +156,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   proveedores-service:
     restart: always
@@ -176,11 +176,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   ventas-service:
     restart: always
@@ -196,11 +196,11 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
       mysql-db:
-        condition: service_healthy
+        condition: service_started
       eureka:
-        condition: service_healthy
+        condition: service_started
       config-server:
-        condition: service_healthy
+        condition: service_started
 
   api-gateway:
     restart: always
