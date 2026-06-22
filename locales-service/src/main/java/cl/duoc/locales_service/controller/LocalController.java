@@ -286,7 +286,7 @@ public class LocalController {
             content = @Content(
                     mediaType = "application/json",
                     array = @ArraySchema(
-                            schema = @Schema(implementation = Local.class)
+                            schema = @Schema(implementation = LocalDTO.class)
                     )
             )
     )

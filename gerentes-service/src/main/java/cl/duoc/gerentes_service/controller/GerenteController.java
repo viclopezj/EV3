@@ -57,7 +57,12 @@ public class GerenteController {
     @ApiResponse(
             responseCode = "200",
             description = "Gerente encontrado",
-            content = @Content()
+            content = @Content(
+                    mediaType = "application/json",
+                    array = @ArraySchema(
+                            schema = @Schema(implementation = Gerente.class)
+                    )
+            )
     )
     @ApiResponse(
             responseCode = "404",
