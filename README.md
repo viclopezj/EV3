@@ -1,41 +1,89 @@
 # Regifood - Sistema de Gestión Administrativa
 
-* **Estudiante:** Vicente López
-* **Empresa / Cliente:** Tasty Feast
-* **Tecnologías Principales:** Java 25, Spring Boot, Spring Cloud, JPA/Hibernate, MySQL, OpenFeign.
+* **Cliente:** Tasty Feast
+* **Tecnologías Principales:** Java 25, Spring Boot, Spring Cloud (Eureka, Config Server, Cloud Gateway), JPA/Hibernate, Flyway, MySQL, OpenFeign, JUnit 5, Mockito.
 
 ---
 
-## Descripción del Proyecto
+## 📝 Descripción del Contexto y Dominio
 
-**Regifood** es una solución de software empresarial distribuida diseñada como hito técnico formal para la corporación gastronómica **Tasty Feast**. El sistema aborda de manera integral las ineficiencias logísticas y de control operativo derivadas de la gestión manual y el uso de sistemas monolíticos heredados en su red nacional de franquicias.
+**Regifood** es una solución de software empresarial distribuida diseñada como plataforma técnica para la corporación gastronómica **Tasty Feast**. El sistema aborda de manera integral las ineficiencias logísticas y de control operativo derivadas de la gestión manual y el uso de sistemas monolíticos heredados en su red nacional de franquicias.
 
-A través de un enfoque basado en una **Arquitectura de Microservicios**, el ecosistema descentraliza la persistencia de datos mediante el patrón *Database-per-Microservice* sobre MySQL y utiliza el stack de **Spring Cloud** para garantizar una topología altamente elástica, desacoplada y tolerante a fallos.
+A través de un enfoque basado en una **Arquitectura de Microservicios**, el ecosistema descentraliza la persistencia de datos mediante el patrón *Database-per-Microservice* sobre MySQL y utiliza el stack de **Spring Cloud** para garantizar una topología altamente elástica, desacoplada y tolerante a fallos. Todos los módulos de dominio están estructurados bajo el patrón de diseño **CSR (Controller-Service-Repository/Model)** con una separación estricta de responsabilidades.
+
+---
+
+## 🛠️ Arquitectura del Sistema y Estándares Técnicos
+
+El ecosistema cumple con los siguientes estándares de arquitectura corporativa:
+
+* **Formato de Propiedades:** Todos los archivos de configuración y propiedades del entorno se gestionan exclusivamente en formato YAML (`.yml`), garantizando una estructura limpia y legible.
+* **Persistencia y JPA:** La configuración de Hibernate JPA establece la propiedad `ddl-auto` en el valor `validate` para resguardar la integridad y consistencia del esquema en entornos de producción.
+* **Control de Versiones de Base de Datos:** El sistema opera con **Flyway** para la gestión, migración y evolución automatizada del esquema relacional de las bases de datos.
+* **Gestión de Puertos:** Todos los microservicios operativos de la red interna se inicializan en **puertos dinámicos aleatorios (`server.port=0`)**, permitiendo una escalabilidad horizontal elástica y mitigando conflictos perimetrales.
+* **Acceso Centralizado:** La API externa es accesible únicamente a través del API Gateway. El acceso directo a los puertos individuales de cada microservicio está restringido por diseño para proteger el perímetro de la red.
 
 ### Componentes de Infraestructura de Soporte
-
 * **Eureka Server (`eureka-service`):** Servidor de descubrimiento que centraliza el registro dinámico de instancias en el puerto `8761`.
 * **Config Server (`config-server`):** Servidor de configuración centralizada que expone las propiedades de entorno en el puerto `8888` utilizando almacenamiento nativo local (`./config-microservicios`).
-* **API Gateway (`api-gateway`):** Enrutador perimetral único del ecosistema expuesto en el puerto `8080`. Implementa balanceo de carga reactivo dinámico (`lb://`) aislando la red interna del backend.
+* **API Gateway (`api-gateway`):** Enrutador perimetral único expuesto en el puerto `8080`, el cual administra el balanceo de carga reactivo (`lb://`) y el flujo controlado de solicitudes.
 
 ---
 
-## Instrucciones de Instalación y Ejecución
+## 📄 Interfaz de Documentación (Swagger / OpenAPI)
 
-Para desplegar localmente el ecosistema Regifood, siga rigurosamente los siguientes pasos secuenciales:
+La exploración e interacción con los endpoints del backend se realiza de forma unificada desde el API Gateway perimetral:
+
+* **Enlace de Acceso de la Documentación UI:** `http://localhost:8080/swagger-ui.html`
+
+El backend del Gateway expone una interfaz interactiva con una lista desplegable que consolida los recursos técnicos de todos los servicios activos del sistema, facilitando las pruebas de integración en tiempo real.
+
+---
+
+## 🧪 Aseguramiento de Calidad y Pruebas Automatizadas (Testing)
+
+El sistema incorpora una arquitectura de pruebas automatizadas robusta localizada en el directorio `src/test/java` para garantizar la estabilidad del código, la continuidad operativa y la prevención de regresiones ante nuevas integraciones:
+
+* **Métricas de Cobertura:** Se mantiene un estándar técnico riguroso con una cobertura igual o superior al **80%** de líneas de código en los componentes de lógica más crítica (`locales-service` y `gerentes-service`).
+* **Pruebas de Lógica de Negocio (Capa `@Service`):** Validación exhaustiva de flujos operativos, restricciones operacionales y consistencia de datos mediante el aislamiento completo de los componentes de persistencia, utilizando dobles de prueba gestionados con **Mockito**.
+* **Pruebas de Integración y Contratos (Capa `@RestController`):** Verificación automatizada de la exposición de endpoints, deserialización correcta de payloads JSON, validación de campos requeridos y consistencia en el manejo de códigos de respuesta HTTP.
+
+---
+
+## 🚀 Instrucciones de Instalación y Ejecución
+
+El sistema cuenta con una arquitectura diseñada para operar de manera híbrida, permitiendo una conmutación transparente entre entornos contenerizados (Docker) y ejecuciones locales tradicionales (XAMPP / IDE) ante eventualidades de infraestructura.
+
+---
+
+### Opción A: Despliegue en Entorno Contenerizado (Docker)
+
+El proyecto está diseñado para funcionar de manera automatizada bajo contenedores utilizando Dockerfiles optimizados para la construcción limpia de imágenes de producción.
+
+1. Inicie la aplicación **Docker Desktop** en su servidor o estación de trabajo.
+2. Al iniciar el contenedor, el sistema ejecutará de forma automática el script `init.sql` alojado estrictamente en el directorio `/init-db` en la raíz, inicializando las 8 bases de datos independientes requeridas.
+3. Posiciónese en la terminal en la raíz del proyecto y ejecute:
+   ```docker compose up --build```
+4. Para finalizar la ejecución y desmontar los recursos de red,
+contenedores y volúmenes de forma segura, ejecute:
+   ```docker compose down```
+---
+### Opción B: Plan de Contingencia / Despliegue Local
+
+Si se presentan problemas o restricciones externas en el motor de Docker, realice los siguientes pasos para levantar la infraestructura de forma local:
 
 ### Paso 1: Configuración de los Esquemas en MySQL
 Abra su gestor de bases de datos y ejecute las siguientes sentencias para inicializar de forma independiente las bases de datos requeridas por el ecosistema:
 
 ```sql
-CREATE DATABASE tf_bd_empleados;
-CREATE DATABASE tf_bd_equipos;
-CREATE DATABASE tf_bd_gerentes;
-CREATE DATABASE tf_bd_inventarios;
-CREATE DATABASE tf_bd_locales;
-CREATE DATABASE tf_bd_menus;
-CREATE DATABASE tf_bd_proveedores;
-CREATE DATABASE tf_bd_ventas;
+CREATE DATABASE IF NOT EXISTS tf_bd_empleados;
+CREATE DATABASE IF NOT EXISTS tf_bd_equipos;
+CREATE DATABASE IF NOT EXISTS tf_bd_gerentes;
+CREATE DATABASE IF NOT EXISTS tf_bd_inventarios;
+CREATE DATABASE IF NOT EXISTS tf_bd_locales;
+CREATE DATABASE IF NOT EXISTS tf_bd_menus;
+CREATE DATABASE IF NOT EXISTS tf_bd_proveedores;
+CREATE DATABASE IF NOT EXISTS tf_bd_ventas;
 ```
 
 ### Paso 2: Orden Secuencial de Encendido de los Servicios
@@ -54,7 +102,7 @@ Debido a que los microservicios operativos se inicializan en **puertos dinámico
    * `ventas-service`
 4. **`api-gateway`:** Enrutador del Ecosistema. Se enciende en el último lugar de la secuencia. Al configurarlo al final, se garantiza que todas las rutas y mapeos dinámicos de los microservicios de dominio ya se encuentren totalmente registrados y disponibles en Eureka, optimizando la resolución de rutas del punto de entrada único y previniendo fallos perimetrales.
 
-### Paso 3: Verificación de la Infraestructura
+### Verificación de la Infraestructura
 Puede validar la correcta conexión, la salud de las instancias de la JVM y el mapeo automático de puertos dinámicos ingresando al panel de control interactivo:
 
 * **Dashboard de Eureka:** http://localhost:8761
