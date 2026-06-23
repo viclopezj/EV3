@@ -67,16 +67,13 @@ El proyecto está diseñado para funcionar de manera automatizada bajo contenedo
 1. Inicie la aplicación **Docker Desktop** en su servidor o estación de trabajo.
 2. Al iniciar el contenedor, el sistema ejecutará de forma automática el script `init.sql` alojado estrictamente en el directorio `/init-db` en la raíz, inicializando las 8 bases de datos independientes requeridas.
 3. Posiciónese en la terminal en la raíz del proyecto y ejecute:
-
-   ```docker compose up --build```
+```docker compose up --build```
    
-5. Revisamos que el proyecto se haya levantado ejecutando el comando: 
+5. Revisamos que el proyecto se haya levantado correctamente, ejecutando el comando: 
+```docker compose ps -a```
 
-  ```docker compose ps -a```
-
-7. Para finalizar la ejecución y desmontar los recursos de red, contenedores y volúmenes de forma segura, ejecute:
-
-   ```docker compose down```
+7. Para finalizar la ejecución y desmontar los recursos, contenedores y volúmenes, ejecute:
+```docker compose down```
    
 ---
 ### Opción B: Plan de Contingencia / Despliegue Local
@@ -116,7 +113,7 @@ Debido a que los microservicios operativos se inicializan en **puertos dinámico
 ## Verificación de la Infraestructura
 Puede validar la correcta conexión, la salud de las instancias de la JVM y el mapeo automático de puertos dinámicos ingresando al panel de control interactivo:
 
-* **Dashboard de Eureka:** http://localhost:8761
+**Dashboard de Eureka:** http://localhost:8761
 
 ---
 
