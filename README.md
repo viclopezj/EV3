@@ -54,6 +54,8 @@ El sistema incorpora una arquitectura de pruebas automatizadas robusta localizad
 
 El sistema cuenta con una arquitectura diseñada para operar de manera híbrida, permitiendo una conmutación transparente entre entornos contenerizados (Docker) y ejecuciones locales tradicionales (XAMPP / IDE) ante eventualidades de infraestructura.
 
+Se descargar el proyecto guardado en github mediante el codigo git clone y la direccion del repositorio:
+  ```git clone https://github.com/viclopezj/EV3.git```
 ---
 
 ### Opción A: Despliegue en Entorno Contenerizado (Docker)
@@ -64,7 +66,9 @@ El proyecto está diseñado para funcionar de manera automatizada bajo contenedo
 2. Al iniciar el contenedor, el sistema ejecutará de forma automática el script `init.sql` alojado estrictamente en el directorio `/init-db` en la raíz, inicializando las 8 bases de datos independientes requeridas.
 3. Posiciónese en la terminal en la raíz del proyecto y ejecute:
    ```docker compose up --build```
-4. Para finalizar la ejecución y desmontar los recursos de red,
+4. Revisamos que el proyecto se haya levantado ejecutando el comando: 
+   ```docker compose ps -a```
+5. Para finalizar la ejecución y desmontar los recursos de red,
 contenedores y volúmenes de forma segura, ejecute:
    ```docker compose down```
 ---
@@ -102,7 +106,7 @@ Debido a que los microservicios operativos se inicializan en **puertos dinámico
    * `ventas-service`
 4. **`api-gateway`:** Enrutador del Ecosistema. Se enciende en el último lugar de la secuencia. Al configurarlo al final, se garantiza que todas las rutas y mapeos dinámicos de los microservicios de dominio ya se encuentren totalmente registrados y disponibles en Eureka, optimizando la resolución de rutas del punto de entrada único y previniendo fallos perimetrales.
 
-### Verificación de la Infraestructura
+## Verificación de la Infraestructura
 Puede validar la correcta conexión, la salud de las instancias de la JVM y el mapeo automático de puertos dinámicos ingresando al panel de control interactivo:
 
 * **Dashboard de Eureka:** http://localhost:8761
