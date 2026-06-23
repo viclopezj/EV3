@@ -54,8 +54,9 @@ El sistema incorpora una arquitectura de pruebas automatizadas robusta localizad
 
 El sistema cuenta con una arquitectura diseñada para operar de manera híbrida, permitiendo una conmutación transparente entre entornos contenerizados (Docker) y ejecuciones locales tradicionales (XAMPP / IDE) ante eventualidades de infraestructura.
 
-Se descargar el proyecto guardado en github mediante el codigo git clone y la direccion del repositorio:
-  (``git clone https://github.com/viclopezj/EV3.git``)
+Se descargar el proyecto guardado en github mediante el codigo git clone y 
+la direccion del repositorio: 
+```git clone https://github.com/viclopezj/EV3.git```
   
 ---
 
@@ -66,11 +67,15 @@ El proyecto está diseñado para funcionar de manera automatizada bajo contenedo
 1. Inicie la aplicación **Docker Desktop** en su servidor o estación de trabajo.
 2. Al iniciar el contenedor, el sistema ejecutará de forma automática el script `init.sql` alojado estrictamente en el directorio `/init-db` en la raíz, inicializando las 8 bases de datos independientes requeridas.
 3. Posiciónese en la terminal en la raíz del proyecto y ejecute:
+
    ```docker compose up --build```
-4. Revisamos que el proyecto se haya levantado ejecutando el comando: 
-   ```docker compose ps -a```
-5. Para finalizar la ejecución y desmontar los recursos de red,
+   
+5. Revisamos que el proyecto se haya levantado ejecutando el comando: 
+  ```docker compose ps -a```
+
+7. Para finalizar la ejecución y desmontar los recursos de red,
 contenedores y volúmenes de forma segura, ejecute:
+
    ```docker compose down```
 ---
 ### Opción B: Plan de Contingencia / Despliegue Local
