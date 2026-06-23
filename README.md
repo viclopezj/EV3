@@ -53,8 +53,10 @@ El sistema incorpora una arquitectura de pruebas automatizadas robusta localizad
 ## 🚀 Instrucciones de Instalación y Ejecución
 
 El sistema cuenta con una arquitectura diseñada para operar de manera híbrida, permitiendo una conmutación transparente entre entornos contenerizados (Docker) y ejecuciones locales tradicionales (XAMPP / IDE) ante eventualidades de infraestructura.
+
 Se descargar el proyecto guardado en github mediante el codigo git clone y la direccion del repositorio:
   ```git clone https://github.com/viclopezj/EV3.git```
+  
 ---
 
 ### Opción A: Despliegue en Entorno Contenerizado (Docker)
