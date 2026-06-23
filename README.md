@@ -54,8 +54,7 @@ El sistema incorpora una arquitectura de pruebas automatizadas robusta localizad
 
 El sistema cuenta con una arquitectura diseñada para operar de manera híbrida, permitiendo una conmutación transparente entre entornos contenerizados (Docker) y ejecuciones locales tradicionales (XAMPP / IDE) ante eventualidades de infraestructura.
 
-Se descargar el proyecto guardado en github mediante el codigo git clone y 
-la direccion del repositorio: 
+Se descargar el proyecto guardado en github mediante el codigo git clone y la direccion del repositorio: 
 
 ```git clone https://github.com/viclopezj/EV3.git```
   
@@ -75,10 +74,10 @@ El proyecto está diseñado para funcionar de manera automatizada bajo contenedo
 
   ```docker compose ps -a```
 
-7. Para finalizar la ejecución y desmontar los recursos de red,
-contenedores y volúmenes de forma segura, ejecute:
+7. Para finalizar la ejecución y desmontar los recursos de red, contenedores y volúmenes de forma segura, ejecute:
 
    ```docker compose down```
+   
 ---
 ### Opción B: Plan de Contingencia / Despliegue Local
 
