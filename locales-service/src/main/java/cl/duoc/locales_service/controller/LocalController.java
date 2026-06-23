@@ -178,7 +178,7 @@ public class LocalController {
             @Parameter(example = "1", description = "ID del local a eliminar")
             @PathVariable Long id) {
         localService.delete(id);
-        return new ResponseEntity<>("Gerente eliminado exitosamente", HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //6
@@ -227,7 +227,7 @@ public class LocalController {
             @Parameter(example = "1", description = "ID del local a buscar")
             @PathVariable Long id) {
         LocalDTO local = localService.findDTO(id);
-        if (local == null) return ResponseEntity.notFound().build();
+        if (local == null) throw new NotFoundException("Local no encontrado");
         return ResponseEntity.ok(local);
     }
 

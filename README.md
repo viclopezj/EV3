@@ -34,7 +34,7 @@ El ecosistema cumple con los siguientes estándares de arquitectura corporativa:
 
 La exploración e interacción con los endpoints del backend se realiza de forma unificada desde el API Gateway perimetral:
 
-* **Enlace de Acceso de la Documentación UI:** `http://localhost:8080/swagger-ui.html`
+* **Enlace de Acceso de la Documentación UI:** http://localhost:8080/swagger-ui.html
 
 El backend del Gateway expone una interfaz interactiva con una lista desplegable que consolida los recursos técnicos de todos los servicios activos del sistema, facilitando las pruebas de integración en tiempo real.
 
@@ -56,7 +56,9 @@ El sistema cuenta con una arquitectura diseñada para operar de manera híbrida,
 
 Se descargar el proyecto guardado en github mediante el codigo git clone y la direccion del repositorio: 
 
-```git clone https://github.com/viclopezj/EV3.git```
+``
+git clone https://github.com/viclopezj/EV3.git
+``
   
 ---
 

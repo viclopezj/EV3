@@ -13,7 +13,9 @@ spring:
             - id: empleados-service
               uri: lb://empleados-service
               predicates:
-                - Path=/api/v1/empleados/**
+                - Path=/api/v1/empleados/**, /v3/api-docs/empleados
+              filters:
+                - RewritePath=/v3/api-docs/empleados, /v3/api-docs
 
             - id: gerentes-service
               uri: lb://gerentes-service
@@ -32,27 +34,37 @@ spring:
             - id: menus-service
               uri: lb://menus-service
               predicates:
-                - Path=/api/v1/menus/**
+                - Path=/api/v1/menus/**, /v3/api-docs/menus
+              filters:
+                - RewritePath=/v3/api-docs/menus, /v3/api-docs
 
             - id: ventas-service
               uri: lb://ventas-service
               predicates:
-                - Path=/api/v1/ventas/**
+                - Path=/api/v1/ventas/**, /v3/api-docs/ventas
+              filters:
+                - RewritePath=/v3/api-docs/ventas, /v3/api-docs
 
             - id: inventarios-service
               uri: lb://inventarios-service
               predicates:
-                - Path=/api/v1/inventarios/**
+                - Path=/api/v1/inventarios/**, /v3/api-docs/inventarios
+              filters:
+                - RewritePath=/v3/api-docs/inventarios, /v3/api-docs
 
             - id: proveedores-service
               uri: lb://proveedores-service
               predicates:
-                - Path=/api/v1/proveedores/**
+                - Path=/api/v1/proveedores/**, /v3/api-docs/proveedores
+              filters:
+                - RewritePath=/v3/api-docs/proveedores, /v3/api-docs
 
             - id: equipos-service
               uri: lb://equipos-service
               predicates:
-                - Path=/api/v1/equipos/**
+                - Path=/api/v1/equipos/**, /v3/api-docs/equipos
+              filters:
+                - RewritePath=/v3/api-docs/equipos, /v3/api-docs
 
             - id: categorias-service
               uri: lb://menus-service
@@ -81,3 +93,15 @@ springdoc:
         url: /v3/api-docs/locales
       - name: Gerentes
         url: /v3/api-docs/gerentes
+      - name: Empleados
+        url: /v3/api-docs/empleados
+      - name: Menús y Categorías
+        url: /v3/api-docs/menus
+      - name: Ventas
+        url: /v3/api-docs/ventas
+      - name: Inventarios
+        url: /v3/api-docs/inventarios
+      - name: Proveedores
+        url: /v3/api-docs/proveedores
+      - name: Equipos y Marcas
+        url: /v3/api-docs/equipos

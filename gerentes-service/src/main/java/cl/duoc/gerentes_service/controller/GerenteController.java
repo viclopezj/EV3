@@ -59,9 +59,7 @@ public class GerenteController {
             description = "Gerente encontrado",
             content = @Content(
                     mediaType = "application/json",
-                    array = @ArraySchema(
-                            schema = @Schema(implementation = Gerente.class)
-                    )
+                    schema = @Schema(implementation = Gerente.class)
             )
     )
     @ApiResponse(
@@ -182,7 +180,7 @@ public class GerenteController {
             @Parameter (example = "1", description = "ID del gerente a eliminar")
             @PathVariable Long id) {
         gerenteService.delete(id);
-        return new ResponseEntity<>("Gerente eliminado exitosamente", HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     //6
