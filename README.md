@@ -56,6 +56,7 @@ El sistema cuenta con una arquitectura diseñada para operar de manera híbrida,
 
 Se descargar el proyecto guardado en github mediante el codigo git clone y 
 la direccion del repositorio: 
+
 ```git clone https://github.com/viclopezj/EV3.git```
   
 ---
@@ -71,6 +72,7 @@ El proyecto está diseñado para funcionar de manera automatizada bajo contenedo
    ```docker compose up --build```
    
 5. Revisamos que el proyecto se haya levantado ejecutando el comando: 
+
   ```docker compose ps -a```
 
 7. Para finalizar la ejecución y desmontar los recursos de red,
